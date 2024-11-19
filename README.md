@@ -1,76 +1,96 @@
-Análisis de Ventas en Línea 🚀
-Este proyecto analiza un dataset de ventas en línea con el objetivo de extraer información valiosa sobre las tendencias de ventas, clientes y productos, así como identificar patrones que podrían ser útiles para mejorar las estrategias comerciales.
+# Análisis Exploratorio de Datos: Online Retail Dataset
 
-Tabla de Contenidos
-Descripción del Proyecto
-Dataset
-Requisitos
-Ejecución del Proyecto
-Análisis Realizado
-Resultados Clave
-Visualizaciones
-Autor
-Descripción del Proyecto
-Este proyecto utiliza herramientas de Python para realizar un análisis exploratorio de datos (EDA) sobre un dataset de ventas en línea. Las librerías empleadas incluyen:
+Este proyecto realiza un análisis exploratorio de datos (EDA) en el conjunto de datos de ventas minoristas en línea proporcionado. A continuación, se detalla el proceso, los análisis realizados y los insights obtenidos.
 
-Pandas: para manipulación y análisis de datos.
-NumPy: para cálculos numéricos.
-Matplotlib y Seaborn: para visualización de datos.
-Dataset
-El dataset utilizado contiene información sobre facturas, productos, clientes y países donde se realizaron las ventas.
+---
 
-Columnas principales:
+## Contenido
+1. [Descripción del Dataset](#descripción-del-dataset)
+2. [Limpieza de Datos](#limpieza-de-datos)
+3. [Análisis Exploratorio (EDA)](#análisis-exploratorio-eda)
+4. [Visualizaciones](#visualizaciones)
+5. [Insights Principales](#insights-principales)
+6. [Requisitos](#requisitos)
+7. [Instrucciones de Uso](#instrucciones-de-uso)
 
-InvoiceNo: Número de factura.
-StockCode: Código del producto.
-Description: Descripción del producto.
-Quantity: Cantidad vendida.
-InvoiceDate: Fecha de la factura.
-UnitPrice: Precio unitario.
-CustomerID: ID del cliente.
-Country: País de la compra.
-Nota: El dataset original tiene algunos valores nulos en las columnas Description y CustomerID, que fueron limpiados para el análisis.
+---
 
-Requisitos
-Asegúrate de tener instalado lo siguiente antes de ejecutar el proyecto:
+## Descripción del Dataset
+El dataset utilizado contiene información sobre transacciones realizadas por una tienda minorista en línea entre diciembre de 2010 y diciembre de 2011. Las columnas incluyen:
+- **InvoiceNo**: Número de factura
+- **StockCode**: Código del producto
+- **Description**: Descripción del producto
+- **Quantity**: Cantidad vendida
+- **InvoiceDate**: Fecha de la transacción
+- **UnitPrice**: Precio unitario
+- **CustomerID**: Identificación del cliente
+- **Country**: País de origen del cliente
 
-Python 3.8 o superior.
-Librerías necesarias (instalar con pip install -r requirements.txt):
-pandas
-numpy
-matplotlib
-seaborn
-Ejecución del Proyecto
-Clona este repositorio en tu máquina local:
-bash
-Copiar código
-git clone https://github.com/tu_usuario/online-retail-analysis.git
-cd online-retail-analysis
-Instala las dependencias:
-bash
-Copiar código
-pip install -r requirements.txt
-Descarga el dataset y colócalo en el directorio raíz del proyecto.
-Ejecuta el script principal:
-bash
-Copiar código
-python main.py
-Análisis Realizado
-Algunas preguntas respondidas durante el análisis incluyen:
+---
 
-¿Cuáles son los productos más vendidos?
-¿Qué países generan más ingresos?
-¿Cómo varían las ventas por mes y año?
-¿Qué clientes generan más ingresos?
-¿Cuál es el ticket promedio por cliente?
-Resultados Clave
-Top Países por Ventas: El Reino Unido lidera en cantidad y valor de ventas.
-Top Productos: Identificamos los 10 productos más vendidos.
-Caída en Diciembre 2011: Descubrimos que solo hubo datos disponibles para los primeros 9 días de diciembre, lo que explica una caída significativa en las ventas.
-Ventas Promedio por Producto: Calculamos la cantidad promedio vendida y el ingreso por producto.
-Visualizaciones
-Ventas por País
+## Limpieza de Datos
+1. **Eliminación de valores nulos**:
+   - Se eliminaron registros con `CustomerID` nulo.
+2. **Creación de nuevas columnas**:
+   - `TotalPrice`: Calculada como `Quantity * UnitPrice`.
+   - `Year` y `Month`: Extraídas de la columna `InvoiceDate`.
+3. **Filtrado de columnas**:
+   - Se seleccionaron únicamente las columnas relevantes para el análisis.
 
-Productos Más Vendidos
+---
 
-Ventas por Mes y Año
+## Análisis Exploratorio (EDA)
+- **Ventas por país**:
+  - Se analizaron las cantidades totales y los ingresos por país.
+- **Productos más vendidos**:
+  - Se identificaron los 10 productos más vendidos.
+- **Tendencias temporales**:
+  - Se observaron ventas por año y mes.
+- **Clientes por país**:
+  - Número de clientes únicos por región.
+- **Promedio de ventas por producto**:
+  - Cantidad promedio y precio total promedio por producto.
+
+---
+
+## Visualizaciones
+1. **Ventas totales por país**:
+   - Gráfico de barras de los países con mayores ingresos.
+2. **Productos más vendidos**:
+   - Gráfico de barras de los 10 productos más vendidos.
+3. **Tendencias mensuales**:
+   - Ventas agrupadas por mes y año.
+4. **Clientes por país**:
+   - Gráfico de barras de los países con mayor número de clientes únicos.
+
+---
+
+## Insights Principales
+1. **País con mayores ventas**: 
+   - El Reino Unido es el mercado principal con una cantidad significativamente mayor de ventas en comparación con otros países.
+2. **Tendencia temporal**:
+   - Diciembre de 2011 muestra una caída abrupta en ventas debido a que solo contiene datos de 9 días.
+3. **Productos más vendidos**:
+   - Productos como "TEA TIME TEA TOWELS" son los más populares, destacándose por la alta cantidad de unidades vendidas.
+4. **Clientes recurrentes**:
+   - La mayoría de los clientes provienen del Reino Unido, lo que sugiere que el negocio se centra en este mercado.
+5. **Anomalías**:
+   - Existen registros con cantidades y precios negativos, posiblemente indicando devoluciones.
+
+---
+
+## Requisitos
+- **Librerías necesarias**:
+  - `pandas`
+  - `numpy`
+  - `matplotlib`
+  - `seaborn`
+- **Entorno de Python**:
+  - Versiones 3.7 o superiores.
+
+---
+
+## Instrucciones de Uso
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/online-retail-analysis.git
